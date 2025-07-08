@@ -19,10 +19,13 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcepts {...CORE_CONCEPTS[0]} />
+            {CORE_CONCEPTS.map((conceptItems) => (
+              <CoreConcepts {...conceptItems} key={conceptItems.title} />
+            ))}
+            {/* <CoreConcepts {...CORE_CONCEPTS[0]} />
             <CoreConcepts {...CORE_CONCEPTS[1]} />
             <CoreConcepts {...CORE_CONCEPTS[2]} />
-            <CoreConcepts {...CORE_CONCEPTS[3]} />
+            <CoreConcepts {...CORE_CONCEPTS[3]} /> */}
             {/* SPREAD OPERATOR SPREADS THE CORE_CONCEPTS DATA AS PROPS */}
             {/* <CoreConcepts
               title={CORE_CONCEPTS[0].title}
@@ -49,12 +52,30 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TapButton onSelect={() => handleSelect("components")}>
+            <TapButton
+              isSelected={selectedTopic == "components" ? true : false}
+              onSelect={() => handleSelect("components")}
+            >
               Component
             </TapButton>
-            <TapButton onSelect={() => handleSelect("jsx")}>JSX</TapButton>
-            <TapButton onSelect={() => handleSelect("props")}>Props</TapButton>
-            <TapButton onSelect={() => handleSelect("state")}>State</TapButton>
+            <TapButton
+              isSelected={selectedTopic == "jsx" ? true : false}
+              onSelect={() => handleSelect("jsx")}
+            >
+              JSX
+            </TapButton>
+            <TapButton
+              isSelected={selectedTopic == "props" ? true : false}
+              onSelect={() => handleSelect("props")}
+            >
+              Props
+            </TapButton>
+            <TapButton
+              isSelected={selectedTopic == "state" ? true : false}
+              onSelect={() => handleSelect("state")}
+            >
+              State
+            </TapButton>
           </menu>
           {!selectedTopic ? (
             <p>Please select a topic</p>
