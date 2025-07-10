@@ -13,7 +13,7 @@ function App() {
     console.log(`selectedTopic - ${selectedTopic}`);
   }
   return (
-    <div>
+    <>
       <Header title="title1" name="name1" />
       <main>
         <section id="core-concepts">
@@ -90,7 +90,7 @@ function App() {
           )}
         </section>
       </main>
-    </div>
+    </>
   );
 }
 export default App;
